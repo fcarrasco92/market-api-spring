@@ -7,11 +7,15 @@ import com.platzi.market.persistence.entity.Producto;
 import com.platzi.market.persistence.mapper.ProductMapper;
 import java.util.List;
 import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class ProductoRepository implements ProductRepository {
+  @Autowired
   private ProductoCrudRepository productoCrudRepository;
+
+  @Autowired
   private ProductMapper mapper; // instancia para mapear
 
   @Override
@@ -56,7 +60,7 @@ public class ProductoRepository implements ProductRepository {
 
   @Override
   public List<Product> getByCategoryOrdered(int categoryId) {
-    List<Producto> productos = (List<Producto>)  productoCrudRepository.finByIdCategoriaOrderByNombreAsc(categoryId);
+    List<Producto> productos = productoCrudRepository.finByIdCategoriaOrderByNombreAsc(categoryId);
     return mapper.toProducts(productos);
   }
 
