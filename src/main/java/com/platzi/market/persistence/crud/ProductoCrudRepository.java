@@ -9,13 +9,14 @@ import org.springframework.data.repository.CrudRepository;
 public interface ProductoCrudRepository extends CrudRepository<Producto, Integer> {
 
   // query Methods
-  List<Producto> findByIdCategoria(int idCategoria);
+  //List<Producto> findByIdCategoria(int idCategoria);
 
   // query sql
   @Query(value = "SELECT * FROM productos where id_categoria = ?", nativeQuery = true)
   List<Producto> getCategoryByIdCategoria(int idCategoria);
 
-  List<Producto> finByIdCategoriaOrderByNombreAsc(int idCategoria);
+  //List<Producto> finByIdCategoriaOrderByNombreAsc(int idCategoria);
+  List<Producto> findByIdCategoriaOrderByNombreAsc(int idCategoria);
 
   Optional<List<Producto>> findByCantidadStockLessThanAndEstado(int cantidadStock, boolean estado);
 

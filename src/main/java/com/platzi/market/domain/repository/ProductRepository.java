@@ -14,7 +14,6 @@ public interface ProductRepository {
   void delete(int productId);
 
   // method created by me.
-  List<Product> getByCategoryOrdered(int categoryId);
   List<Product> getProductsCheap(double price, boolean active);
   List<Product> getProductsActive();
 
