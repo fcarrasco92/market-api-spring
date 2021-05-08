@@ -2,6 +2,7 @@ package com.platzi.market.persistence.entity;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,7 +37,7 @@ public class Compra {
   @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
   private Cliente cliente;
 
-  @OneToMany(mappedBy = "producto")
+  @OneToMany(mappedBy = "compra", cascade = {CascadeType.ALL})
   private List<ComprasProducto> productos;
 
   public Integer getIdCompra() {
