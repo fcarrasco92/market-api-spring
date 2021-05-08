@@ -11,7 +11,7 @@ import org.mapstruct.Mappings;
 public interface PurchaseItemMapper {
 
   @Mappings({
-      @Mapping(source = "id.idProducto",target = "productId"),
+      @Mapping(source = "id.idProducto", target = "productId"),
       @Mapping(source = "cantidad", target = "quantity"),
       @Mapping(source = "estado", target = "active")
   })
